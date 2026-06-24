@@ -1,0 +1,19 @@
+package:
+  name: "doublecure"
+  version: "0.1a"
+about:
+  summary: "Scripts for double curation in PretextView"
+source:
+  path: ../
+requirements:
+  build:
+    - python {{ python }}
+    - pip
+    - setuptools
+    - pandas
+    - routoolpa
+  run:
+    - pandas
+    - routoolpa
+build:
+  script: python setup.py install
