@@ -2,7 +2,7 @@ __author__ = 'mahajrod'
 import os
 from setuptools import setup
 
-dependencies = ["pandas", "routoolpa"]
+dependencies = ["pandas", "routoolpa" ]
 
 setup(name='doublecure',
       version='0.1a',
