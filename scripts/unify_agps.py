@@ -146,9 +146,6 @@ parser.add_argument("-s", "--haplotype_separator", action="store", dest="haploty
                          "Scaffold ids must follow this template: <haplotype_prefix><haplotype_number><separator><scaffold_subid>. "
                          "For example, hap1.scaf256. "
                          "Default: '.'")
-parser.add_argument("-l", "--len_file", action="store", dest="len_file", required=True,
-                    help="Two-column tab-separated file with lengths of scaffolds. "
-                         "The first column must contain scaffold ids, the second - its lengths, respectively. Required.")
 parser.add_argument("-o", "--output_prefix", action="store", dest="output_prefix", required=True,
                     help="Prefix of output files. Required.")
 
@@ -244,8 +241,7 @@ no_gaps_merged_processed_df = merged_processed_df[~merged_processed_df["part_typ
 tmp_no_gaps_merged_processed_df = deepcopy(no_gaps_merged_processed_df)
 curated_times_df = no_gaps_merged_processed_df[["agp_id", "part_id/gap_length"]].sort_values(by="part_id/gap_length").drop_duplicates().groupby(by="part_id/gap_length").count()
 multiple_curated_df = curated_times_df[curated_times_df["agp_id"] > 1]
-multiple_curated_records_df = []
-
+multiple_curated_records_df = pd.DataFrame()
 if len(multiple_curated_df) > 0:
     print("WARNING!!! Some scaffolds were processed twice or more times")
     multiply_curated_main_info_df = no_gaps_merged_processed_df[["agp_id", "part_id/gap_length"]].sort_values(by="part_id/gap_length").drop_duplicates().set_index("part_id/gap_length").loc[multiple_curated_df.index]

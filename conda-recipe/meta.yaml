@@ -10,10 +10,10 @@ requirements:
     - python {{ python }}
     - pip
     - setuptools
-    - pandas
+    - pandas=2
     - routoolpa
   run:
-    - pandas
+    - pandas=2
     - routoolpa
 build:
   script: python setup.py install

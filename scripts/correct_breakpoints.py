@@ -1,7 +1,11 @@
 #!/usr/bin/env python
 __author__ = 'mahajrod'
-import pandas as pd
+
 from copy import deepcopy
+
+import argparse
+
+import pandas as pd
 
 from RouToolPa.Parsers.AGP import CollectionAGP
 from RouToolPa.Parsers.Sequence import CollectionSequence
