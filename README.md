@@ -6,6 +6,8 @@
   <i>Set of scripts to perform a double stage manual curation of the genome assemblies</i>
 </p>
 
+# Double stage curation
+
 # Installation
 
 ## from Conda
